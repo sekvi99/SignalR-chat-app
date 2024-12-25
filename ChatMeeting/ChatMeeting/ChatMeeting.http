@@ -1,0 +1,6 @@
+@ChatMeeting_HostAddress = http://localhost:5247
+
+GET {{ChatMeeting_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
