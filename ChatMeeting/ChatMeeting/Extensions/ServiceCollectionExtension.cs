@@ -17,15 +17,17 @@ public static class ServiceCollectionExtension
     {
         AddCustomAuthentication(services, configuration);
         var connectionString = configuration.GetValue<string>("ConnectionString");
-        services.AddDbContext<ChatDbContext>(options => options.UseSqlServer(connectionString));
+        services.AddDbContext<ChatDbContext>(options => options.UseSqlServer(connectionString, b => b.MigrationsAssembly("ChatMeeting.API")));
         return services;
     }
 
     public static IServiceCollection AddServices(this IServiceCollection services)
     {
         services.AddTransient<IUserRepository, UserRepository>();
+        services.AddTransient<IChatRepository, ChatRepository>();
         services.AddTransient<IAuthService, AuthService>();
         services.AddTransient<IJwtService, JwtService>();
+        services.AddTransient<IChatService, ChatService>();
         return services;
     }
 
