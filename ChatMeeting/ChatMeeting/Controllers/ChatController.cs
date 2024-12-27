@@ -1,12 +1,13 @@
 ﻿using ChatMeeting.Core.Domain.Exceptions;
 using ChatMeeting.Core.Domain.Interfaces.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using System.Runtime.CompilerServices;
 
 namespace ChatMeeting.API.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
+[Authorize]
 public class ChatController : Controller
 {
     private readonly IChatService _chatService;
@@ -18,7 +19,7 @@ public class ChatController : Controller
         _chatService = chatService;
     }
 
-    [HttpPost]
+    [HttpPost("GetPaginatedChat")]
     public async Task<IActionResult> GetPaginatedChat(string chatName, int pageNumber, int pageSize)
     {
         try

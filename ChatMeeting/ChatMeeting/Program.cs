@@ -1,4 +1,5 @@
 using ChatMeeting.API.Extensions;
+using ChatMeeting.API.Hubs;
 
 var builder = WebApplication.CreateBuilder(args);
 var configuration = builder.Configuration;
@@ -8,7 +9,7 @@ var configuration = builder.Configuration;
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerOptions();
 builder.Services.AddConfiguration(configuration);
 builder.Services.AddServices();
 builder.Services.AddOptions(configuration);
@@ -33,6 +34,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.MapHub<MessageHub>("/messageHub");
 
 app.UseAuthentication();
 app.UseAuthorization();
