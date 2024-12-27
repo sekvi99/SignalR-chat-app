@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "3KgjwnGDtkE=",
+  "dgSpecHash": "72EJrj3OdzY=",
   "success": true,
   "projectFilePath": "C:\\Users\\sekvi\\Desktop\\Projects\\SignalR-chat-app\\SignalR-chat-app\\ChatMeeting\\ChatMeeting.Infrastructure\\ChatMeeting.Infrastructure.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\sekvi\\.nuget\\packages\\confluent.kafka\\2.6.1\\confluent.kafka.2.6.1.nupkg.sha512",
+    "C:\\Users\\sekvi\\.nuget\\packages\\librdkafka.redist\\2.6.1\\librdkafka.redist.2.6.1.nupkg.sha512",
     "C:\\Users\\sekvi\\.nuget\\packages\\microsoft.entityframeworkcore\\8.0.10\\microsoft.entityframeworkcore.8.0.10.nupkg.sha512",
     "C:\\Users\\sekvi\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\8.0.10\\microsoft.entityframeworkcore.abstractions.8.0.10.nupkg.sha512",
     "C:\\Users\\sekvi\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\8.0.10\\microsoft.entityframeworkcore.analyzers.8.0.10.nupkg.sha512",

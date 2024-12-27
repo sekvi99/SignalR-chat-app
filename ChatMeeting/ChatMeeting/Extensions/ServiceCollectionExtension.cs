@@ -1,8 +1,10 @@
 ﻿using ChatMeeting.Core.Application.Services;
 using ChatMeeting.Core.Domain;
+using ChatMeeting.Core.Domain.Interfaces.Producer;
 using ChatMeeting.Core.Domain.Interfaces.Repositories;
 using ChatMeeting.Core.Domain.Interfaces.Services;
 using ChatMeeting.Core.Domain.Options;
+using ChatMeeting.Infrastructure.Producer;
 using ChatMeeting.Infrastructure.Repositories;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
@@ -30,6 +32,7 @@ public static class ServiceCollectionExtension
         services.AddTransient<IJwtService, JwtService>();
         services.AddTransient<IChatService, ChatService>();
         services.AddSingleton<IUserConnectionService, UserConnectionService>();
+        services.AddTransient<IKafkaProducer, KafkaProducer>();
         services.AddSignalR();
         return services;
     }
@@ -37,6 +40,7 @@ public static class ServiceCollectionExtension
     public static IServiceCollection AddOptions(this IServiceCollection services, IConfiguration configuration)
     {
         services.Configure<JwtSettingsOption>(options => configuration.GetSection(nameof(JwtSettingsOption)).Bind(options));
+        services.Configure<KafkaOption>(options => configuration.GetSection(nameof(KafkaOption)).Bind(options));
         return services;
     }
 
